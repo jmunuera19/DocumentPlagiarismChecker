@@ -83,7 +83,8 @@ namespace DocumentPlagiarismChecker.Comparators.ParagraphWordCounter
         }
 
         /// <summary>
-        /// Counts how many words and how many times appears within each paragraph, comparing them between each other in order to score a matching percentage.
+       
+/// Cuenta cuántas palabras y cuántas veces aparecen en cada párrafo, comparándolas entre sí para obtener un porcentaje de coincidencia.
         /// </summary>
         /// <param name="paragraphsLeft">A left-side set of paragraphs as a collection of pair-values following the schema (text, (word, count)).</param>
         /// <param name="paragraphsRight">A right-side set of paragraphs as a collection of pair-values following the schema (text, (word, count)).</param>
