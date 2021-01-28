@@ -14,15 +14,14 @@ using DocumentPlagiarismChecker.Scores;
 namespace DocumentPlagiarismChecker.Comparators.ParagraphWordCounter
 {
     /// <summary>
-    /// The Paragraph Word Counter Comparator reads a pair of files and counts how many words and how many times appear on each paragraph within a file, and 
-    /// then calculates how many of those appearences matches between documents. So, two documents with the same amount of the same paragraphs and 
-    /// words can be a copy with a high level of provability.
+    /// El Comparador de contador de palabras de párrafo lee un par de archivos y cuenta cuántas palabras y cuántas veces aparecen en cada párrafo dentro de un archivo, y luego calcula cuántas de esas apariciones coinciden entre documentos.
+	/// Entonces, dos documentos con la misma cantidad de los mismos párrafos y palabras pueden ser una copia con un alto nivel de demostrabilidad.
     /// </summary>
     /// <typeparam name="Document"></typeparam>
     internal class Comparator: Core.BaseComparator<Document>
     {  
         /// <summary>
-        /// Creates a new instance for the Comparator.
+        /// Crea una nueva instancia para el comparador.
         /// </summary>
         /// <param name="fileLeftPath">The left side file's path.</param>
         /// <param name="fileRightPath">The right side file's path.</param>
@@ -31,14 +30,14 @@ namespace DocumentPlagiarismChecker.Comparators.ParagraphWordCounter
         }  
         
         /// <summary>
-        /// Counts how many words and how many times appears within each paragraph in a document, and checks the matching percentage.
+        /// Compte quantes paraules i quantes vegades apareixen en cada paràgraf d'un document i verifica el percentatge de coincidència.
         /// </summary>
         /// <returns>The matching's results.</returns>
         public override ComparatorMatchingScore Run(){     
-            //This order is meant to improving performance
+            //Aquesta comanda està destinada a millorar el rendiment.
             ExcludeSampleExactMatches(); 
-            ExcludeSamplePartialMatches(this.Left, 0.70f);  //TODO: threshold value must be get from settings; check if can be removed
-            ExcludeSamplePartialMatches(this.Right, 0.70f);  //TODO: threshold value must be get from settings; check if can be removed
+            ExcludeSamplePartialMatches(this.Left, 0.70f);  //TODO: el valor llindar ha d'obtenir-se de la configuració; comprovar si es pot llevar
+            ExcludeSamplePartialMatches(this.Right, 0.70f);  //TODO: el valor llindar ha d'obtenir-se de la configuració; comprovar si es pot llevar
             ExcludeExclussionListMatches();
             
             return ComputeMatching(CompareParagraphs(this.Left, this.Right));                                                        
